@@ -1,0 +1,36 @@
+projects:
+  my-dns:
+    kind: "dns#project"
+    number: 1
+    id: my-dns
+    quota:
+      kind: "dns#quota"
+      managedZones: -1
+      rrsetsPerManagedZone: -1
+      rrsetAdditionsPerChange: -1
+      rrsetDeletionsPerChange: -1
+      totalRrdataSizePerChange: -1
+      resourceRecordsPerRrset: -1
+    managedZones:
+      - kind: "dns#managedZone"
+        name: foo
+        dnsName: foo.tld
+        description: Test zone foo.tld
+        id: 3878651218952229077
+        nameServers:
+          - ns1.foo.tld
+          - ns2.foo.tld
+        creationTime: "2014-08-12T03:30:10.789Z"
+
+servers:
+  servers:
+    - ns1.foo.tld
+  tsig:
+    name: update_key
+    algorithm: hmac-sha1
+    key: riAGxTzCLy+8ckrp6K7u5MI7Zj8=
+
+# credentials for Cloud Controller to authenticate with the broker
+basic_auth:
+  username: admin
+  password: password
